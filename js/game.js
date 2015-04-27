@@ -42,7 +42,7 @@ var config = {
     deltaCollision: 40,
 
     // number of enemies
-    enemiesNumber: 1
+    enemiesNumber: 3
 };
 
 /**
