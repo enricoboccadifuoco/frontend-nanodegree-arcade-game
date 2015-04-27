@@ -5,11 +5,11 @@ Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015
 
 for self-checking their submission.
 
-# How to run
+## How to run
 
 Download repo, and run index.html file in your browser
 
-# How to play
+## How to play
 
 * Use arrows keys to move the player
 * collect coins as quickly as possible to achieve the best score
