@@ -2,8 +2,8 @@
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-allEnemies = [],
-allCoins = [];
+var allEnemies = [],
+    allCoins = [];
 
 // enemies
 for (var i = 0; i < config.enemiesNumber; i++) {
@@ -11,8 +11,8 @@ for (var i = 0; i < config.enemiesNumber; i++) {
 };
 
 // coins
-for (row = 0; row < config.enemy.startsY.length; row++) {
-    for (col = 0; col < 5; col++) {
+for (var row = 0; row < config.enemy.startsY.length; row++) {
+    for (var col = 0; col < 5; col++) {
         allCoins.push(new Coin(col * 101, config.enemy.startsY[row]));
     }
 }

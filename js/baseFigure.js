@@ -11,12 +11,12 @@ var BaseFigure = function () {
     this.yRange = [];
 
     this.sprite = "";
-}
+};
 
 /**
  * draw the figure on the screen
  *
  */
-BaseFigure.prototype.render = function() {
+BaseFigure.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};

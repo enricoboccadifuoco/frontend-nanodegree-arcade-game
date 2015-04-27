@@ -18,7 +18,7 @@ var Enemy = function () {
     this.sprite = config.enemy.sprite;
 
     this.reset();
-}
+};
 
 Enemy.prototype = Object.create(BaseFigure.prototype);
 
@@ -30,7 +30,7 @@ Enemy.prototype = Object.create(BaseFigure.prototype);
  */
 Enemy.prototype.getRandomY = function () {
     return this.startsY[Math.floor(Math.random() * this.startsY.length)];
-}
+};
 
 /**
  * Return a random value between speedRange values
@@ -38,9 +38,9 @@ Enemy.prototype.getRandomY = function () {
  * @return number
  *
  */
-Enemy.prototype.getRandomSpeed = function() {
+Enemy.prototype.getRandomSpeed = function () {
     return Math.floor(Math.random() * (this.speedRange[1] - this.speedRange[0])) + this.speedRange[0];
-}
+};
 
 /**
  * Reset enemy position, with random Y and random speed values
@@ -51,7 +51,7 @@ Enemy.prototype.reset = function () {
     this.y = this.getRandomY();
 
     this.speed = this.getRandomSpeed();
-}
+};
 
 /**
  * Update the enemy's position, required method for game
@@ -69,4 +69,4 @@ Enemy.prototype.update = function (dt) {
     if (this.x > this.xRange[1]) {
         this.reset();
     }
-}
+};

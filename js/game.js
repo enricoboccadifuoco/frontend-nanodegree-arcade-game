@@ -70,7 +70,7 @@ var Game = {
      *
      */
     setScore: function () {
-        this.score += parseInt( config.coin.value / ( ( (new Date().getTime() - this.gameStarts) / 1000 ) % 60) ) * config.enemiesNumber;
+        this.score += parseInt(config.coin.value / (((new Date().getTime() - this.gameStarts) / 1000) % 60)) * config.enemiesNumber;
         this.updateCoinEarned();
         document.dispatchEvent(scoreUpdate);
     },
@@ -94,7 +94,7 @@ var Game = {
     gameOver: function () {
         var self = this;
 
-        setTimeout(function(){
+        setTimeout(function () {
             window.cancelAnimationFrame(window.requestId);
 
             ctx.font = "40pt Impact";
@@ -118,7 +118,7 @@ var Game = {
      *
      */
     resetScore: function () {
-        allCoins.forEach(function(coin) {
+        allCoins.forEach(function (coin) {
             coin.revertLastPosition();
         });
 
@@ -127,7 +127,7 @@ var Game = {
         this.gameStarts = new Date().getTime();
         document.dispatchEvent(scoreUpdate);
     }
-}
+};
 
 /**
  * On score update, prints score in input #score
@@ -145,6 +145,6 @@ document.addEventListener('scoreUpdate', function (e) {
  * @method last
  *
  */
-Array.prototype.last = function() {
-    return this[this.length -1];
+Array.prototype.last = function () {
+    return this[this.length - 1];
 };
