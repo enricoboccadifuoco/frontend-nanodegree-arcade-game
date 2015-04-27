@@ -56,7 +56,7 @@ var Engine = (function (global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+        win.requestId = win.requestAnimationFrame(main);
     };
 
     /* This function does some initial setup that should only occur once,
@@ -95,6 +95,7 @@ var Engine = (function (global) {
            enemy.update(dt);
        });
 
+       // coins update
        allCoins.forEach(function(coin) {
            coin.update();
        });
@@ -154,6 +155,7 @@ var Engine = (function (global) {
          * the render function you have defined.
          */
 
+        // coins rendering
         allCoins.forEach(function (coin) {
             coin.render();
         });
@@ -178,23 +180,19 @@ var Engine = (function (global) {
      * all of these images are properly loaded our game will start.
      */
 
-    document.querySelector("button")
-        .addEventListener("click", function(){
+    var resources = [
+        'images/stone-block.png',
+        'images/water-block.png',
+        'images/grass-block.png'
+    ];
 
-            var resources = [
-                'images/stone-block.png',
-                'images/water-block.png',
-                'images/grass-block.png'
-            ];
+    // custom resources loading
+    resources.push(config.enemy.sprite);
+    resources.push(config.player.sprites[config.player.selectedSprite]);
+    resources.push(config.coin.sprite);
 
-            resources.push(config.enemy.sprite);
-            resources.push(config.player.sprites[config.player.selectedSprite]);
-            resources.push(config.coin.sprite);
-
-            Resources.load(resources);
-            Resources.onReady(init);
-
-        });
+    Resources.load(resources);
+    Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window
      * object when run in a browser) so that developer's can use it more easily

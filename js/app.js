@@ -3,19 +3,21 @@
 // Place the player object in a variable called player
 
 allEnemies = [],
-allCoins = [],
-player = null;
+allCoins = [];
 
+// enemies
 for (var i = 0; i < config.enemiesNumber; i++) {
     allEnemies.push(new Enemy());
 };
 
+// coins
 for (row = 0; row < config.enemy.startsY.length; row++) {
     for (col = 0; col < 5; col++) {
         allCoins.push(new Coin(col * 101, config.enemy.startsY[row]));
     }
 }
 
+// player
 player = new Player();
 
 // This listens for key presses and sends the keys to your

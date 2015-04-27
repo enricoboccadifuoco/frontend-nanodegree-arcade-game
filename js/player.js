@@ -1,7 +1,7 @@
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
+/**
+ * Player object, extends BaseFigure
+ *
+ */
 var Player = function () {
 
     BaseFigure.call(this);
@@ -15,28 +15,42 @@ var Player = function () {
 
 Player.prototype = Object.create(BaseFigure.prototype);
 
-Player.prototype.reset = function () {
 
+/**
+ * Reset player position
+ *
+ */
+Player.prototype.reset = function () {
     this.x = config.player.x;
     this.y = config.player.y;
 }
 
+/**
+ * On game update
+ *
+ */
 Player.prototype.update = function () {
-
     this.collisionCheck();
 }
 
+
+/**
+ * Check player collision and reset the game
+ *
+ */
 Player.prototype.collisionCheck = function () {
 
     var self = this;
 
     if ( this.y <= player.yRange[0] ) {
+        Game.resetScore();
         self.reset();
     } else if (this.y >= config.enemy.startsY[0] && this.y <= config.enemy.startsY[config.enemy.startsY.length-1]) {
         allEnemies.forEach(function(enemy) {
 
             if ( enemy.y === self.y ) {
                 if (enemy.x >= self.x - config.deltaCollision && enemy.x <= self.x + config.deltaCollision) {
+                    Game.resetScore();
                     self.reset();
                 }
             }
@@ -45,6 +59,10 @@ Player.prototype.collisionCheck = function () {
     }
 }
 
+/**
+ * Updates player position
+ *
+ */
 Player.prototype.handleInput = function (direction) {
 
     switch (direction) {
